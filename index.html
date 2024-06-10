@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="C:\Users\ASUS\OneDrive\Desktop\semester 3\CS283 WebProgramming\Assign1\master.css" />
+
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="box">
+            <p>
+            <h1>Age Calculator</h1>
+            </p>
+        </div>
+
+        <script type="text/javascript">
+
+            //const d = new Date();
+            //const tDay = d.getDate(); //to know current day
+            //const tMon = d.getMonth() + 1; //to know current month and +1 as index starts from 0
+            //const tYr = d.getFullYear(); //to know current year
+
+            function Calculate() {
+
+                //METHOD ONE without substring
+                // var num = parseInt(document.getElementById('idnum').value);
+                //
+                // var x = parseInt(num / 10000000); //x carries the first 3 numbers on the left
+                //
+                // var dy = parseInt(x % 100); //dy carries the last two digits on right(day)
+                //
+                // x = x / 100; //x carries the first 5 digits
+                //
+                // var mn = parseInt(x % 100); //mn carries the last two digits on right(month)
+                //
+                // x = x / 100; //x carries the first 3 digits
+                //
+                // var yr = parseInt(x % 100); //yr carries the last two digits on right(year)
+                //
+                // var cen = parseInt(x / 100); //carries the century
+                //
+                // var age;
+                //
+                // if (cen == 2) {
+                //     yr = 1900 + yr;
+                //
+                //     if (mn < tMon) {
+                //         age = (tYr - yr);
+                //     }
+                //     else if (mn == tMon && dy <= tDay) {
+                //         age = (tYr - yr);
+                //     }
+                //     else if (mn == tMon && dy > tDay) {
+                //         age = (tYr - yr) - 1;
+                //     }
+                // }
+                //
+                // if (cen == 3) {
+                //     yr = 2000 + yr;
+                //
+                //     if (mn < tMon) {
+                //         age = (tYr - yr);
+                //     }
+                //     else if (mn == tMon && dy <= tDay) {
+                //         age = (tYr - yr);
+                //     }
+                //     else if (mn == tMon && dy > tDay) {
+                //         age = (tYr - yr) - 1;
+                //     }
+                // }
+                //
+                // document.getElementById('age').innerHTML = age;
+                //
+                //
+                //
+
+                //ANOTHER METHOD using substring
+                var num = document.getElementById('idnum').value;
+                var yr = num.substring(1, 3);
+                console.log(num, yr);
+                var mon = num.substring(3, 5);
+                var day = num.substring(5, 7);
+                console.log(mon, day);
+                var cen = num.substring(0, 1);
+                console.log(cen);
+                var age;
+
+                if (cen == 2) { age = 2023 - (19 + yr); }
+                if (cen == 3) { age = 2023 - (20 + yr); }
+                document.getElementById('age').innerHTML = age;
+
+            }
+
+
+
+
+        </script>
+
+        <input type="number" name="idnum" id="idnum" placeholder="ID">
+        <br><br>
+        <button class="btn" onclick="Calculate()"> calculate my age</button>
+
+        <div>
+            <p>
+            <h3>Your age is:</h3>
+            </p>
+            <p id='age'></p>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
